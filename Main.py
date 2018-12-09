@@ -1,6 +1,7 @@
 import os
 
 import openpyxl
+import pyperclip as pyperclip
 
 from clFile import CLFile
 from entityDictionary import EntityDictionary
@@ -32,10 +33,14 @@ firstSheetName = wb.sheetnames[0]
 
 t_sheet = wb[firstSheetName]
 
-if import_file_type == '1':
-    LCFile.out(t_sheet, e_dictionary)
-else:
-    CLFile.out(t_sheet, e_dictionary)
+clip_board_str = ""
 
-print("終了しますか？")
+if import_file_type == '1':
+    clip_board_str = LCFile.out(t_sheet, e_dictionary)
+else:
+    clip_board_str = CLFile.out(t_sheet, e_dictionary)
+
+pyperclip.copy(clip_board_str)
+
+print("クリップボードにコピーしました。")
 input()
