@@ -1,6 +1,6 @@
 import re
 
-class ClFile:
+class LCFile:
 
     def __init__(self):
         return
