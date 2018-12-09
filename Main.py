@@ -2,6 +2,7 @@ import os
 
 import openpyxl
 
+from clFile import CLFile
 from entityDictionary import EntityDictionary
 from lcFile import LCFile
 
@@ -22,7 +23,7 @@ import_file_type = input()
 e_dictionary = EntityDictionary.importER()
 
 # "file\\import\\"
-INPUT_FILE_NAME = file_list[int(select_number)]
+INPUT_FILE_NAME = file_list[int(select_number) - 1]
 
 # data_only=Trueにする？
 wb = openpyxl.load_workbook(FILE_PATH + INPUT_FILE_NAME, data_only=True)
@@ -34,7 +35,7 @@ t_sheet = wb[firstSheetName]
 if import_file_type == '1':
     LCFile.out(t_sheet, e_dictionary)
 else:
-    print("まだ実装されていません。")
+    CLFile.out(t_sheet, e_dictionary)
 
 print("終了しますか？")
 input()
