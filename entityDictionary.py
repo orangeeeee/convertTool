@@ -12,7 +12,6 @@ class EntityDictionary:
         return
     @classmethod
     def importER(cls):
-        print("hi")
 
         entity_dictionary_file = open(cls.FILE_PATH + cls.IMPORT_FILE_NAME + '.csv')
         csv_file_obj = csv.DictReader(entity_dictionary_file)
