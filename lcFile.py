@@ -7,6 +7,12 @@ class LCFile:
     def __init__(self):
         return
 
+    method_template = '''/** " {jp_name}  */
+    @InputFixedLengthColumn(start = {str_position} , end = {end_position} )
+    public String {method_name};
+    
+    '''
+
     @classmethod
     def out(cls, t_sheet, e_dictionary):
 
@@ -24,8 +30,8 @@ class LCFile:
             en_name = e_dictionary.get(jp_name, 'NonMatchMethodName')
             method_name = re.sub("_(.)", lambda x: x.group(1).upper(), en_name)
 
-            output_str += "/** " + jp_name + " */" + os.linesep
-            output_str += "@InputFixedLengthColumn(start = " + str_position + ", end = " + end_position + ")" + os.linesep
-            output_str += "public String " + method_name + ";" + os.linesep
+            output_str += cls.method_template.format(
+                jp_name=jp_name, str_position=str_position, end_position=end_position,
+                method_name=method_name)
 
         return output_str

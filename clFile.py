@@ -7,6 +7,12 @@ class CLFile:
     def __init__(self):
         return
 
+    method_template = '''/** " {jp_name}  */
+    @OutputFixedColumn(byteSize = {byteSize}, mode = Mode.{attr_mode})
+    public String {method_name};
+
+    '''
+
     @classmethod
     def out(cls, t_sheet, e_dictionary):
 
@@ -24,9 +30,8 @@ class CLFile:
             en_name = e_dictionary.get(jp_name, 'NonMatchMethodName')
             method_name = re.sub("_(.)", lambda x: x.group(1).upper(), en_name)
 
-            output_str += "/** " + jp_name + " */" + os.linesep
-            output_str += "@OutputFixedColumn(byteSize = " + str(
-                byteSize) + ", mode = Mode." + attr_mode + ")" + os.linesep
-            output_str += "public String " + method_name + ";" + os.linesep
+            output_str += cls.method_template.format(
+                jp_name=jp_name, byteSize=byteSize, attr_mode=attr_mode,
+                method_name=method_name)
 
         return output_str
