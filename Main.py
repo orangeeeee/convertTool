@@ -22,10 +22,8 @@ import_file_type = input()
 
 e_dictionary = EntityDictionary.importER()
 
-# "file\\import\\"
 INPUT_FILE_NAME = file_list[int(select_number) - 1]
 
-# data_only=Trueにする？
 wb = openpyxl.load_workbook(FILE_PATH + INPUT_FILE_NAME, data_only=True)
 
 firstSheetName = wb.sheetnames[0]
