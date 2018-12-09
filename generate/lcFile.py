@@ -7,7 +7,7 @@ class LCFile:
     def __init__(self):
         return
 
-    method_template = '''/** " {jp_name}  */
+    method_template = '''/** {jp_name}  */
     @InputFixedLengthColumn(start = {str_position} , end = {end_position} )
     public String {method_name};
     
@@ -18,7 +18,7 @@ class LCFile:
 
         output_str = ""
 
-        for i in range(11, 100):  # lengthはあとから
+        for i in range(11, 1000):  # lengthはあとから
 
             jp_name = t_sheet.cell(row=i, column=4).value
             str_position = str(t_sheet.cell(row=i, column=11).value)

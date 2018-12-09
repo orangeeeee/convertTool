@@ -3,9 +3,9 @@ import os
 import openpyxl
 import pyperclip as pyperclip
 
-from clFile import CLFile
-from entityDictionary import EntityDictionary
-from lcFile import LCFile
+from generate.clFile import CLFile
+from dictionary.entityDictionary import EntityDictionary
+from generate.lcFile import LCFile
 
 FILE_PATH = os.path.join('file', 'import', '')
 file_list = os.listdir(FILE_PATH)
