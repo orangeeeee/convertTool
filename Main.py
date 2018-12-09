@@ -14,7 +14,6 @@ menu_list_str = "読込むファイル番号を入力してください" + os.li
 for i in range(len(file_list)):
     menu_list_str += str(i + 1) + ":" + file_list[i] + os.linesep
 
-# In[1]:\
 print(menu_list_str)
 select_number = input()
 
