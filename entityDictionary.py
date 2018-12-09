@@ -3,7 +3,7 @@ import csv
 
 class EntityDictionary:
     # col1 = TABLE_CATALOG, col2 = TABLE_SCHEMA, col3 = TABLE_NAME, col4 = COLUMN_NAME, col4= LOGICAL_NAME
-    FILE_PATH = os.path.join('file', 'import', '')
+    FILE_PATH = os.path.join('file', 'dictionary', '')
     IMPORT_FILE_NAME = 'a5m2_COLUMNS'
     COLUMN_ENTITY_NAME = 'COLUMN_NAME'
     COLUMN_ENTITY_JP_NAME = 'LOGICAL_NAME'
