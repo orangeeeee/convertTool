@@ -1,4 +1,5 @@
-# convertTool
+# BatchのCLファイル、LCファイルをクラスを自動生成する
+
 ＜install＞
 ・python3をinstall
 https://www.python.org/ftp/python/3.7.1/python-3.7.1-amd64.exe
