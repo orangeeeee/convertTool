@@ -12,9 +12,9 @@ class IFCreate:
     @classmethod
     def out(cls, t_sheet, e_dictionary):
 
-        output_str = ""
-
         clazzName = cls.convertNumericToStr(t_sheet.cell(row=1, column=2).value)
+
+        output_str = IFTemplate.interface_template.format(clazzName=clazzName)
 
         for i in range(3, 100):  # TODO lengthはあとから
 
@@ -37,7 +37,7 @@ class IFCreate:
             else:
                 output_str += IFTemplate.method_template.format(
                     jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
-
+        output_str += '}'
         return output_str
 
     @classmethod
