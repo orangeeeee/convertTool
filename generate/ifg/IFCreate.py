@@ -10,7 +10,7 @@ class IFCreate:
         return
 
     @classmethod
-    def out(cls, t_sheet, e_dictionary):
+    def out(cls, t_sheet, e_dictionary, generate_target):
 
         clazzName = cls.convertNumericToStr(t_sheet.cell(row=1, column=2).value)
 
@@ -30,14 +30,26 @@ class IFCreate:
             # toCamelCase
             method_name = re.sub("_(.)", lambda x: x.group(1).upper(), en_name)
 
-            # Optional用のテンプレートと分けて作成する
-            if isOpt:
-                output_str += IFTemplate.opt_method_template.format(
-                    jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
-            else:
-                output_str += IFTemplate.method_template.format(
-                    jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
+            if generate_target == '1' or generate_target == '2':
+                # Optional用のテンプレートと分けて作成する
+                if isOpt:
+                    output_str += IFTemplate.opt_getter_template.format(
+                        jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
+                else:
+                    output_str += IFTemplate.getter_template.format(
+                        jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
+
+            if generate_target == '1' or generate_target == '3':
+                # Optional用のテンプレートと分けて作成する
+                if isOpt:
+                    output_str += IFTemplate.opt_setter_template.format(
+                        jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
+                else:
+                    output_str += IFTemplate.setter_template.format(
+                        jp_name=jp_name, type=_type, clazzName=clazzName, method_name=method_name)
+
         output_str += '}'
+
         return output_str
 
     @classmethod

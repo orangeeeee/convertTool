@@ -6,6 +6,13 @@ import pyperclip as pyperclip
 from dictionary.entityDictionary import EntityDictionary
 from generate.ifg.IFCreate import IFCreate
 
+print("生成対象を選択してください。" + os.linesep
+      + "1 : Setter and Getter" + os.linesep
+      + "2 : Getter" + os.linesep
+      + "3 : Setter")
+
+generate_target = input()
+
 e_dictionary = EntityDictionary.importER()
 
 FILE_PATH = os.path.join('file', 'import', '')
@@ -16,8 +23,7 @@ firstSheetName = wb.sheetnames[0]
 
 t_sheet = wb[firstSheetName]
 
-
-clip_board_str = IFCreate.out(t_sheet, e_dictionary)
+clip_board_str = IFCreate.out(t_sheet, e_dictionary, generate_target)
 
 pyperclip.copy(clip_board_str)
 
