@@ -3,6 +3,7 @@ import os
 import openpyxl
 import pyperclip as pyperclip
 
+from dictionary.additionalDictionary import AdditionalDictionary
 from dictionary.entityDictionary import EntityDictionary
 from generate.ifg.IFCreate import IFCreate
 
@@ -14,6 +15,8 @@ print("生成対象を選択してください。" + os.linesep
 generate_target = input()
 
 e_dictionary = EntityDictionary.importER()
+additional_dictionary = AdditionalDictionary.importDict2(e_dictionary)
+e_dictionary.update(additional_dictionary)
 
 FILE_PATH = os.path.join('file', 'import', '')
 
