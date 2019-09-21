@@ -15,6 +15,7 @@ print("生成対象を選択してください。" + os.linesep
 generate_target = input()
 
 e_dictionary = EntityDictionary.importER()
+
 additional_dictionary = AdditionalDictionary.importDict2(e_dictionary)
 e_dictionary.update(additional_dictionary)
 

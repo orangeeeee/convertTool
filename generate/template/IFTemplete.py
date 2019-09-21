@@ -15,7 +15,7 @@ class IFTemplate:
     
     '''
     setter_template = '''/** {jp_name}  */
-    @NotNull {clazzName} {method_name}(@NotNull final {type} {method_name});
+    @NotNull {clazzName} {method_name}(@NotNuinterface_templatell final {type} {method_name});
 
     '''
 
